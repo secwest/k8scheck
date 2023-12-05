@@ -310,7 +310,7 @@ analyze_webhooks() {
     done
 }
 
-# Function to analyze webpolicies
+# Function to analyze Network Policies
 
 analyze_networkpolicies() {
     networkpolicies=$(kubectl get networkpolicy -n $NAMESPACE -o=jsonpath='{range .items[*]}{.metadata.name}{" "}{.metadata.namespace}{"\n"}{end}')

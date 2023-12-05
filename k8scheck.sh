@@ -365,21 +365,21 @@ analyze_logs() {
     local tail_lines=1000  # Number of log lines to check
     local error_pattern="error|exception|fail"
 
-    echo "Analyzing pod logs in namespace $namespace..."
+    echo "Analyzing pod logs in namespace $NAMESPACE..."
 
     # Get all Pods in the specified namespace
-    pods=$(kubectl get pods -n $namespace -o=jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}')
+    pods=$(kubectl get pods -n $NAMESPACE -o=jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}')
 
     # Analyze logs for each pod
     for pod in $pods; do
         # Fetching the last few lines of logs from the pod
-        logs=$(kubectl logs --tail=$tail_lines $pod -n $namespace 2>/dev/null)
+        logs=$(kubectl logs --tail=$tail_lines $pod -n $NAMESPACE 2>/dev/null)
 
         # Searching for error patterns in the log
         if echo "$logs" | grep -E "$error_pattern"; then
-            echo "Errors found in logs of Pod $pod in namespace $namespace"
+            echo "Errors found in logs of Pod $pod in namespace $NAMESPACE"
         else
-            echo "No significant errors found in logs of Pod $pod in namespace $namespace"
+            echo "No significant errors found in logs of Pod $pod in namespace $NAMESPACE"
         fi
     done
 }

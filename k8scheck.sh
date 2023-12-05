@@ -1,5 +1,8 @@
 #!/bin/bash
-
+# k8scheck
+# A K8S cluster integrity checker shell script.
+# Author: Dragos Ruiu
+# Date: December 05 2023 v1.0
 # Set the namespace; use "--all-namespaces" or a specific namespace as needed
 NAMESPACE="default"
 

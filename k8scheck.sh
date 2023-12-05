@@ -362,7 +362,7 @@ analyze_nodes() {
 # Function to analyze logs 
 
 analyze_logs() {
-    local tail_lines=1000  # Number of log lines to check
+    local tail_lines=100  # Number of log lines to check
     local error_pattern="error|exception|fail"
 
     echo "Analyzing pod logs in namespace $NAMESPACE..."

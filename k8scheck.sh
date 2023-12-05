@@ -330,7 +330,7 @@ analyze_networkpolicies() {
     done <<< "$networkpolicies"
 }
 
-# Function to abnalyze Nodes
+# Function to analyze Nodes
 
 analyze_nodes() {
     nodes=$(kubectl get nodes -o=jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}')
@@ -359,7 +359,7 @@ analyze_nodes() {
 }
 
 
-# Function to analyze logs of a single pod
+# Function to analyze logs 
 
 analyze_logs() {
     local tail_lines=1000  # Number of log lines to check
